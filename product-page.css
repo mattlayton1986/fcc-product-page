@@ -1,0 +1,411 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
+/*
+// #13 Navbar always at top
+// #14 Min. one media query
+// #15 Uses Flexbox min. once
+*/
+
+:root {
+  --white: #FEFFFF;
+	--white-green: #DEF2F1;
+	--green: #3AAFA9;
+	--dark-green: #2B7A78;
+	--green-black: #17252A;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+	font-family: 'Lato', sans-serif;
+	display: flex;
+	justify-content: center;
+  max-width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+header {
+	width: 100%;
+	height: 150px;
+	position: fixed;
+	top: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	background-color: var(--dark-green);
+}
+
+header img#header-img {
+  max-height: 100px;
+}
+
+header div#nav-toggle {
+  display: none;
+}
+
+header nav {
+  width: 30%;
+}
+
+header nav ul {
+  display: flex;
+  list-style-type: none;
+  justify-content: space-evenly;
+  padding: 0;
+}
+
+header nav ul a {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: var(--white-green);
+}
+
+main {
+	width: 100%;
+	margin-top: 150px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+main section {
+  width: 100%;
+  padding: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+main section form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 75%;
+}
+
+main section input {
+  height: 50px;
+  margin: 10px;
+}
+
+main section #email {
+  width: 50%;
+  padding-left: 10px;
+  font-size: 20px;
+  border: 2px solid var(--green);
+}
+
+main section #email:focus {
+  outline: 1px solid var(--green);
+}
+
+main section #submit {
+  font-size: 20px;
+  width: 25%;
+  background-color: var(--green);
+  border-radius: 2px;
+  border: none;
+  transition: all .25s;
+  cursor: pointer;
+}
+
+main section h2 {
+  color: var(--green-black);
+  text-transform: uppercase;
+  margin-top: 0;
+}
+
+main section i {
+  color: var(--white-green);
+}
+
+main section#features {
+  background-color: var(--green-black);
+    color: var(--white);
+}
+
+main section#features div.feature {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+main section#features div.feature h2 {
+  color: var(--green);
+  margin: 0;
+}
+
+main section#features div.feature div.feature-icon {
+  display:flex;
+  justify-content: center;
+  width: 3%;
+}
+
+main section#features div.feature div.feature-icon i {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  color: var(--green);
+}
+
+main section#features div.feature div.feature-desc {
+  width: 50%;
+}
+
+main section#learn {
+  background-color: var(--white-green);
+}
+
+main section#learn h2,
+main section#learn i {
+  color: var(--green-black);
+}
+
+main section#products {
+  width: 75%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas:
+    ". core ."
+    "tdl ptc tfa"
+    "tcu tde tic";
+  gap: 60px 40px;
+}
+
+main section#products .product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid var(--green-black);
+  border-radius: 2px;
+}
+
+main section#products .product h3 {
+  width: 100%;
+  margin: 0;
+  padding: 10px;
+  background-color: var(--green-black);
+  color: var(--white);
+  text-align: center;
+}
+
+main section#products .product img {
+  max-width: 200px;
+  margin: 20px;
+}
+
+main section#products .product p {
+  font-weight: bold;
+  font-size: 24px;
+  margin: 0;
+  width: 100%;
+  text-align: center;
+  color: var(--green-black);
+}
+
+main section#products .product div.buy-now {
+  background-color: var(--dark-green);
+  border-radius: 3px;
+  transition: all .5s;
+  width: 80%;
+  padding: 10px;
+  margin: 20px;
+  text-align: center;
+}
+
+main section#products .product div.buy-now a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: white;
+}
+
+main section#products .product div.buy-now a:hover {
+  transition: all .5s;
+  background-color: var(--green);
+}
+
+main section #core {
+  grid-area: core;
+}
+
+main section #tdl {
+  grid-area: tdl;
+}
+
+main section #ptc {
+  grid-area: ptc;
+}
+
+main section #tfa {
+  grid-area: tfa;
+}
+
+main section #tcu {
+  grid-area: tcu;
+}
+
+main section #tde {
+  grid-area: tde;
+}
+
+main section #tic {
+  grid-area: tic;
+}
+	
+
+/* small desktops */
+@media screen and (max-width: 1340px) {
+  header nav {
+    width: 50%;
+  }
+
+  main section #submit {
+    width: 50%;
+  }
+
+  main section#features div.feature div.feature-desc {
+    width: 80%;
+  }
+
+  main section#products {
+    width: 100%;
+  }
+}
+
+/* tablets */
+@media screen and (max-width: 1024px) {
+  main section #email,
+  main section #submit {
+    width: 100%;
+  }
+
+  main section#features div.feature div.feature-desc {
+    width: 95%;
+  }
+}
+
+/* phones */
+@media screen and (max-width: 768px) {
+  header {
+    justify-content: flex-start;
+  }
+
+  header.expand {
+    height: 225px;
+    transition: all .25s;
+  }
+
+  header.collapse {
+    height: 150px;
+    transition: all .25s;
+  }
+
+  header div#nav-toggle {
+    display: block;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+  }
+
+  header div#nav-toggle i {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: var(--white-green);
+  }
+
+  header div#nav-toggle i.fa-times-circle {
+    display: none;
+  }
+
+  header nav {
+    justify-content: center;
+  }
+
+  header nav.hidden {
+    display: none;
+  }
+
+  header nav.visible {
+    display: flex;
+  }
+
+  header nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  header nav ul li {
+    padding: 5px;
+  }
+
+  main section {
+    padding: 40px;
+  }
+
+  main section form {
+    width: 100%;
+  }
+
+  main section#features div.feature div.feature-icon {
+    width: 7%;
+  }
+
+  main section#features div.feature div.feature-desc {
+    width: 93%;
+  }
+
+  main section#products {
+    width: 100%;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+      ". core core ."
+      "tdl tdl ptc ptc"
+      "tfa tfa tcu tcu"
+      "tde tde tic tic";
+    gap: 2vmax;
+  }
+
+  main section#products .product img {
+    max-width: 100px;
+    height: auto;
+  }
+}
+
+/* small mobile screens */
+@media screen and (max-width: 588px) {
+  main section#products {
+    grid-template-columns: 1fr;
+    grid-template-areas: "core" "tdl" "ptc" "tfa" "tcu" "tde" "tic";  
+  }
+
+  main section#products .product img {
+    max-width: 150px;
+    height: auto;
+  }
+}
+
+/* extra small mobile screens */
+@media screen and (max-width: 515px) {
+  header div#nav-toggle {
+    top: 90px;
+  }
+
+  main section#learn iframe {
+    max-width: 100%;
+    height: 33vh;
+  }
+}
